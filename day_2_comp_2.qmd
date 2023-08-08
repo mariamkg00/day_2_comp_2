@@ -7,3 +7,47 @@ library(tidyverse)
 library(palmerpenguins)
 
 ```
+
+Plotting functions in ggplot 2
+
+```{r}
+#writing a function and give it the body of the function
+
+fx = function(x) {3* x^2 +4}
+
+#ggplot requires it to be initialized, ggplot, what data to use including if you are using x and y variables, c is the concatenate function making vectors in R. aes is calling the range of data values. x=c makes it a vector of two values. ggplot always wants data frames of values. 
+
+
+ggplot(data.frame(x= c(1,100)), aes(x =x )) +
+  geom_function(fun = fx)
+
+#can also plot derivatives, using D and plot it on top of this graph.
+
+```
+
+## Partial derivative 
+
+```{r}
+fxyz = expression(2* x * y +3 *(x^2) *(z^3))
+
+dfdy = D(fxyz, 'y')
+#will treat everything else as a constant 
+
+dfdy
+```
+
+## Penguins plot
+
+Making a scatter plot showing flipper length vs. body mass
+
+```{r}
+ggplot()+ 
+  geom_point(data =penguins, aes(x = flipper_length_mm, y= body_mass_g, color= species ))+
+  labs(x='Flipper Length (mm)', 
+       y= 'Body mass (g)',
+       title= 'Palmer Penguins body dimensions') +
+  theme_minimal()
+
+#changing the color of the points based on a constant; if you are changins somethihng about a chart based on a varibale value it should be done within aes, if its based on a constant it should be done outside aes.  
+
+```
