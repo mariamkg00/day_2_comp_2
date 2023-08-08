@@ -49,5 +49,6 @@ ggplot()+
   theme_minimal()
 
 #changing the color of the points based on a constant; if you are changins somethihng about a chart based on a varibale value it should be done within aes, if its based on a constant it should be done outside aes.  
+marking change
 
 ```
